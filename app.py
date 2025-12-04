@@ -34,22 +34,33 @@ def m_sort(m_list):
         return m_merge(m_sort(m_list[:len(m_list)//2]), m_sort(m_list[len(m_list)//2:]))
 
 
-# create a randomized list of any length
-def random_list(length, limit):
-    new_list = []
-    for n in range(length):
-        new_list.append(random.randint(1, limit))
-    return new_list
+# generates list of random integers from 1-100 of user-defined length
+def generate_list(length):
+    g_list = []
+    if int(length) < 0:
+        return "ERROR: List length cannot be negative!"
+    else:
+        for n in range(int(length)):
+            g_list.append(random.randint(1, 100))
+        return g_list
+    
 
-# basic gradio interface, just for testing purposes
-interface = gr.Interface(
-    fn = m_sort,  # interface works off of our mergesort function
-    inputs=[
-        gr.List(datatype="number", 
-                label="Unsorted List", 
-                value=random_list(10, 100)) # TO-DO: change the value to a customizable list, input by the user
-    ],
-    outputs=[gr.List(datatype="number", label="Sorted List")],
-)
+# gradio blocks interface
+with gr.Blocks() as instance:
+    # section for creating random list
+    with gr.Column():
+        inp = gr.Textbox(placeholder="Enter a positive number for the length of the list", label="List Length")
+        create_btn = gr.Button("Create List")
+    
+    # section for sorting list
+    with gr.Row():
+        with gr.Column():
+            out_list = gr.List(label="Generated List")
+            create_btn.click(fn=generate_list, inputs=inp, outputs=out_list)
+        with gr.Column():
+            sort_btn = gr.Button("Sort List")
+            sorted_list = gr.Textbox(label="Sorted List")
+            sort_btn.click(fn=m_sort, inputs=out_list, outputs=sorted_list)
 
-interface.launch()
+instance.launch()
+
