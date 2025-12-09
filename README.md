@@ -24,6 +24,6 @@ pinned: false
 
 
 ## Authorship
-*author: John Anosike
-date-completed: 09.12.25
-description: a demonstration of the mergesort algorithm*
+*- author: John Anosike
+- date-completed: 09.12.25
+- description: a demonstration of the mergesort algorithm*
