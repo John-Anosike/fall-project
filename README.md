@@ -21,3 +21,9 @@ pinned: false
 2. Press "Create List" to create a randomized list utilizing that list length
 3. Press "Sort List" to sort the list
 4. Adjust the slider below to choose a step to view, then press "View Step" to view the step
+
+
+## Authorship
+*author: John Anosike
+date-completed: 09.12.25
+description: a demonstration of the mergesort algorithm*
