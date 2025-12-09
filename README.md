@@ -1,3 +1,12 @@
+title: MergeSort
+emoji: 😎
+colorFrom: yellow
+colorTo: orange
+sdk: gradio
+sdk_version: 6.0.1
+app_file: app.py
+pinned: false
+
 # MergeSort Algorithm
 <img width="1868" height="844" alt="Screenshot 2025-12-09 120416" src="https://github.com/user-attachments/assets/25d3749b-da75-48bd-9478-b199cb7905c3" />
 
